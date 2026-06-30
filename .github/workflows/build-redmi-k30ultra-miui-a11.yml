@@ -13,7 +13,7 @@ env:
   EXTRA_CMDS : "LD=ld.lld LLVM=1 LLVM_IAS=1"
 
   KERNEL_SOURCE : "https://github.com/HuaLiMao-AQ/android_kernel_xiaomi_mt6873.git"
-  KERNEL_BRANCH : "vendor/cezanne_user_defconfig"
+  KERNEL_BRANCH : "cgroup-v2"
 
   CLANG_SOURCE : "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.7/LLVM-19.1.7-Linux-X64.tar.xz"
   CLANG_BRANCH : ""
