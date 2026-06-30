@@ -1,4 +1,4 @@
-name: Build Redmi K30 Ultra (Based AOSP A14)
+name: Build Redmi K30 Ultra MIUI A11
 
 on:
   workflow_call:
@@ -6,16 +6,16 @@ on:
 
 env:
   # Device env
-  DEVICE_NAME : "redmi_k30_ultra"
+  DEVICE_NAME : "redmi_k30ultra"
   DEVICE_CODENAME : "cezanne"
 
   CUSTOM_CMDS : "CLANG_TRIPLE=aarch64-linux-gnu-"
   EXTRA_CMDS : "LD=ld.lld LLVM=1 LLVM_IAS=1"
 
   KERNEL_SOURCE : "https://github.com/HuaLiMao-AQ/android_kernel_xiaomi_mt6873.git"
-  KERNEL_BRANCH : "cgroup-v2"
+  KERNEL_BRANCH : "vendor/cezanne_user_defconfig"
 
-  CLANG_SOURCE : "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.6/clang+llvm-14.0.6-x86_64-linux-gnu-rhel-8.4.tar.xz"
+  CLANG_SOURCE : "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.7/LLVM-19.1.7-Linux-X64.tar.xz"
   CLANG_BRANCH : ""
 
   GCC_GNU : false
@@ -46,7 +46,7 @@ env:
   NEED_DTBO : false
   NEED_SAFE_DTBO : false
 
-  ROM_TEXT : "aosp_a14"
+  ROM_TEXT : "miui_a11"
 
   # Other env
   PYTHON_VERSION: "3" # Only 2(Ubuntu 22.04 and Ubuntu 20.04) or 3(Any OS Versions).
@@ -57,7 +57,7 @@ env:
   KERNELSU_METHOD: "shell" # shell, manual and only.
 
   PATCHES_SOURCE: "NCJFCQJ/NonGKI_Kernel_Patches_For_cezanne" # [your_name]/[your_patch] -> gooder123/NonGKI_Patcher
-  PATCHES_BRANCH: "mian" # [your_branch] -> main
+  PATCHES_BRANCH: "main" # [your_branch] -> main
 
   SUSFS_FOLDER_FIXED: "aosp_k30ultra_a14" # Fill in your patch prefix directory here. Leave it blank if there isn't one. -> your_folder
   SUSFS_PATCH_FIXED: "susfs_fixed" # Fill in your patches here. If there are multiple patches, please separate them with a comma. Leave it blank if there isn't one. -> patch1,patch2
@@ -86,11 +86,11 @@ env:
   BUILD_OTHER_CONFIG: "false" # Merge config files.
   MERGE_CONFIG_FILES: "vendor/debugfs.config,vendor/lahaina_QGKI.config"
 
-  FREE_MORE_SPACE: "false" # if u want get more space, enabled it.
+  FREE_MORE_SPACE: "true" # if u want get more space, enabled it.
 
 jobs:
   build-kernel:
-    name: Redmi K30 Ultra (Based AOSP A14)
+    name: Build Kernel
     runs-on: ubuntu-latest # u can changed to ubuntu 22.04, and need container set ubuntu-latest
     # container: archlinux/archlinux:latest # if u need use arch linux -> archlinux/archlinux:latest or ubuntu 20.04 -> ubuntu:focal
     env:
