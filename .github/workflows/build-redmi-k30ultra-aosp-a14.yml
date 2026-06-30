@@ -12,7 +12,7 @@ env:
   CUSTOM_CMDS : "CLANG_TRIPLE=aarch64-linux-gnu-"
   EXTRA_CMDS : "LD=ld.lld LLVM=1 LLVM_IAS=1"
 
-  KERNEL_SOURCE : "https://github.com/Redmi-10x-5G-dev/android_kernel_xiaomi_mt6873.git"
+  KERNEL_SOURCE : "https://github.com/HuaLiMao-AQ/android_kernel_xiaomi_mt6873.git"
   KERNEL_BRANCH : "cgroup-v2"
 
   CLANG_SOURCE : "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.6/clang+llvm-14.0.6-x86_64-linux-gnu-rhel-8.4.tar.xz"
